@@ -1,2 +1,2 @@
-# bulp-starter-package
+# Bulp Starter Package
 Starter package for Bulp.
