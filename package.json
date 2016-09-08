@@ -1,0 +1,33 @@
+{
+  "name": "bulp-starter-package",
+  "version": "1.0.0",
+  "description": "A basic Gulp build system.",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chrisdemars/bulp-starter-package.git"
+  },
+  "author": "Chris DeMars <cdemars86@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisdemars/bulp-starter-package/issues"
+  },
+  "homepage": "https://github.com/chrisdemars/bulp",
+  "devDependencies": {
+    "browser-sync": "^2.12.8",
+    "gulp": "^3.9.1",
+    "gulp-a11y": "^0.1.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-pa11y": "0.0.4",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "gulp-watch": "^4.3.5"
+  }
+}

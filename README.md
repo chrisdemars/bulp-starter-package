@@ -1,2 +1,3 @@
-# Bulp Starter Package
-Starter package for Bulp.
+# Bulp all the things.
+
+Read me coming soon!
