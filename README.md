@@ -23,7 +23,17 @@ Open the project in your favorite editor.<br>
 
 Open the terminal and run `gulp` so that it starts running before you start making any changes.
 
-* Every time you start working on your project, make sure to run gulp so all the files can be watched for changes and the tasks can run against those files.
+* Every time you start working on your project, make sure to run `gulp` so all the files can be watched for changes and the tasks can run against those files.
+
+### Note
+
+In the gulpfile.js, browser sync is calling chrome canary. If you don't have or use chrome canary or chrome at all, you can change it to just google chrome or whatever browser you wish.<br>
+```
+    browserSync.init({
+        server: './',
+        browser: "google chrome canary"
+    });
+```
 
 ## Contribute
 
