@@ -8,7 +8,9 @@ var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
     concat      = require('gulp-concat'),
     imagemin    = require('gulp-imagemin'),
-    browserSync = require('browser-sync').create();
+    browserSync = require('browser-sync').create(),
+    xo          = require('gulp-xo'),
+    plumber     = require('gulp-plumber');
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass', 'js'], function() {
@@ -37,6 +39,8 @@ gulp.task('sass', function () {
 // Configure JS.
 gulp.task('js', function() {
   return gulp.src('src/js/**/*.js')
+    .pipe(plumber(() => this.emit('end'))) // Graceful XO Errors
+    .pipe(xo())
     .pipe(uglify())
     .pipe(concat('app.js'))
     .pipe(rename({suffix: '.min'}))
