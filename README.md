@@ -7,13 +7,10 @@ Also within this package is a `src` directory and a `dist` directory for non-com
 ## Installation
 
 Clone or download the repo to your local machine.<br>
-* `git clone https://github.com/chrisdemars/bulp-starter-package.git`
-
-Change the name of the directory to whatever the name of your project is.<br>
-* `mv bulp-starter-package/ DIRNAME/`
+* `git clone https://github.com/chrisdemars/bulp-starter-package.git PROJECTNAME`
 
 Open the directory with the project.
-* `cd DIRNAME`
+* `cd PROJECTNAME`
 
 Run npm install.<br>
 * `npm install`
