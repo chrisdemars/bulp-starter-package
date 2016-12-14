@@ -8,19 +8,15 @@ var gulp        = require('gulp'),
     uglify      = require('gulp-uglify'),
     concat      = require('gulp-concat'),
     imagemin    = require('gulp-imagemin'),
+    cdnify      = require('gulp-cdnify'),
     browserSync = require('browser-sync').create();
 
 // Static Server + watching scss/html files
 gulp.task('serve', ['sass', 'js'], function() {
-
-    browserSync.init({
-        server: './',
-        browser: "google chrome canary"
-    });
-
-    gulp.watch('src/scss/**/*.scss', ['sass']);
-    gulp.watch('src/js/**/*.js', ['js']);
-    gulp.watch('./*.html').on('change', browserSync.reload);
+  browserSync.init({
+    server: './dist/',
+    browser: "google chrome canary"
+  });
 });
 
 // Configure CSS tasks.
@@ -51,10 +47,27 @@ gulp.task('images', function () {
     .pipe(gulp.dest('dist/img'));
 });
 
+// Configure html.
+gulp.task('html', function () {
+  return gulp.src('src/*.html')
+    .pipe(cdnify({
+      rewriter: function (url) {
+        var arr = url.split('.');
+
+        if (arr[arr.length - 2] !== 'min') {
+          arr.splice((arr.length - 1), 0, 'min');
+        }
+
+        return arr.join('.');
+      }
+    }))
+    .pipe(gulp.dest('dist/'));
+});
+
 gulp.task('watch', function () {
   gulp.watch('src/scss/**/*.scss', ['sass']);
   gulp.watch('src/js/**/*.js', ['js']);
-  gulp.watch('./*.html').on('change', browserSync.reload);
+  gulp.watch('src/*.html', ['html']).on('change', browserSync.reload);
 });
 
-gulp.task('default', ['sass', 'js', 'images', 'serve']);
+gulp.task('default', ['sass', 'js', 'images', 'html', 'serve', 'watch']);
